@@ -22,7 +22,7 @@ import { FilterPipe } from '../filter.pipe';
 export class AdminUserListComponent implements OnInit {
   //  searchText:any=''
    searchText: string = '';
-  // userdata$: Observable<Users[]>
+
 
   constructor(private formBuilder: FormBuilder, private http: HttpClient, private router: Router,
     private store: Store<{ allusers: Users[] }>, private appService: appService, private toastr: ToastrService) { }
@@ -42,28 +42,15 @@ export class AdminUserListComponent implements OnInit {
     })
   }
 
-  
-  // getUsers() {
-  //   this.appService.loadUsers()
-  //     .subscribe((data) => {
-  //       this.store.dispatch(retrieveposts({ allusers: data as Users[] }))
-  //     })
-  //   this.userdata$ = this.store.pipe(select(uniqueEmail))
-  // }
-
 
   deleteUser(userId: any) {
-    console.log(userId + "toDeeeeeeeeeeeeeeeeee");
     this.http.post(`http://localhost:5000/admin/deleteUser/${userId}`, {
       withCredentials: true
     }).subscribe((response: any) => {
-      // this.appService.loadUsers()
-      //   .subscribe((data) => {
-      //     this.store.dispatch(retrieveposts({ allusers: data as Users[] }))
-      //   })
+    
       this.store.dispatch(retrieveposts())
       this.toastr.error("Deleted", 'Success!');
-      //  this.userdata$=of(response)
+  
       Emitters.authEmiter.emit(true)
     }, (err) => {
       console.log(err + "hhhhhhhhhhhhhhhhhhh");

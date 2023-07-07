@@ -8,13 +8,13 @@ export class appService{
 
     loadUsers(){
       return this.http.get("http://localhost:5000/admin/users",{withCredentials:true})
-      // .pipe(map((data)=>data||[]))
+  
         }
 
     //-----------users-
     loadProfile(){
       return this.http.get("http://localhost:5000/profile",{withCredentials:true})
-      // .pipe(map((data)=>data))
+    
         }
     //----------
 }

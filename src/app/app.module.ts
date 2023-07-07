@@ -25,8 +25,7 @@ import { AdminCreateUserComponent } from './components/admin-create-user/admin-c
 import { AdminDashboardComponent } from './components/admin-dashboard/admin-dashboard.component';
 import { postReducer,profileReducer } from './components/state/user.reducer';
 import { appService } from './components/state/user.service';
-// import { ErrorPageComponent } from './components/error-page/error-page.component';
-// import { Ng2SearchPipeModule } from 'ng2-search-filter';
+
 import { appEffects } from './components/state/user.effects';
 import { FilterPipe } from './components/filter.pipe';
 
